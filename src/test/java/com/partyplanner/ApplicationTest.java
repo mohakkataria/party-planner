@@ -1,9 +1,9 @@
-package com.testapp;
+package com.partyplanner;
 
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 
-import com.testapp.services.MerchantService;
+import com.partyplanner.services.MerchantService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

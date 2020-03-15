@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'application'
 
-mainClassName = 'com.testapp.Main'
+mainClassName = 'com.partyplanner.Main'
 
 // tag::repositories[]
 repositories {
@@ -12,7 +12,7 @@ repositories {
 
 // tag::jar[]
 jar {
-    baseName = 'testapp'
+    baseName = 'partyplanner'
     version =  '0.1.0'
 }
 // end::jar[]

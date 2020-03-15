@@ -1,4 +1,4 @@
-package com.testapp;
+package com.partyplanner;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;

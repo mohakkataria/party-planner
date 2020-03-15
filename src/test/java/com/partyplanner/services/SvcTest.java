@@ -1,4 +1,4 @@
-package com.testapp.services;
+package com.partyplanner.services;
 
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;

@@ -1,4 +1,4 @@
-package com.testapp;
+package com.partyplanner;
 
 import javax.inject.Inject;
 
