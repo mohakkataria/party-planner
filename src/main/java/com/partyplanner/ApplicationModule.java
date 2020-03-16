@@ -17,16 +17,13 @@ public class ApplicationModule extends AbstractModule {
     @Singleton
     @Named("uri")
     public String provideURI() {
-        return "";
+        return "https://s3.amazonaws.com/intercom-take-home-test/customers.txt";
     }
 
-//    @Provides
-//    @Singleton
-//    public Sca
 
     @Provides
     @Singleton
-    public CustomerService provideCustomerService() {
-        return new CustomerService();
+    public CustomerService provideCustomerService(@Named("uri") String filePath) {
+        return new CustomerService(filePath);
     }
 }
