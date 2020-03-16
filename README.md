@@ -13,3 +13,13 @@ Each submission must meet the following requirements:
 - Code must be tested. Test cases cover likely problems.
 - Please include the output of your program with your submission in a separate file, e.g., output.txt.
 - A file explaining how to install, how to execute the code and how to run tests. We may not be familiar with the language/framework you used and this helps us to evaluate it.
+
+## Instructions to run the program
+```
+$ ./build_and_run.sh
+```
+
+The shell script checks if there is a java installation available. If not it throws and error.
+Else it checks if the version is >= 11. If yes, then it compiles the java files to ./src/out directory and runs the main class from there. 
+
+The output is formatted as lines of customers with `Name : <name>, User Id : <userId>`.
