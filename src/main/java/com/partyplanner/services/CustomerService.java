@@ -10,9 +10,12 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 import javax.inject.Inject;
 
 public class CustomerService {
+
   private final String filePath;
 
   @Inject
@@ -22,16 +25,22 @@ public class CustomerService {
 
   public List<Customer> getCustomers() {
     List<Customer> customers = new ArrayList<>();
+    ObjectMapper objectMapper = new ObjectMapper();
     try {
       InputStream is = new URL(filePath).openStream();
       BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-      String line = reader.readLine();
-      while (line != null) {
-        Customer customer = new ObjectMapper().readValue(line, Customer.class);
-        customers.add(customer);
-        line = reader.readLine();
-      }
+      customers = reader.lines().map(c -> {
+        try {
+          return objectMapper.readValue(c, Customer.class);
+        } catch (IOException e) {
+          e.printStackTrace();
+          return null;
+        }
+      })
+        .filter(Objects::nonNull)
+        .collect(Collectors.toList());
       reader.close();
+
     } catch (IOException e) {
       e.printStackTrace();
     }
